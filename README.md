@@ -1,10 +1,10 @@
 # Claude Code Commands
 
-A collection of custom commands for Claude Code to streamline development workflows. These commands provide structured approaches for common development tasks including bug fixing, specification creation, testing, and feature development.
+My personal collection of custom commands for Claude Code.
 
 ## Example Context
 
-All examples in these commands are derived from a **fictitious weather agent application** that provides weather forecasts, alerts, and location-based services. This consistent example context helps demonstrate how the commands work without being tied to any specific real project.
+All examples in these commands are derived from a **fictitious weather agent application** that provides weather forecasts, alerts, and location-based services. This demonstrates how the commands work without being tied to any specific real project.
 
 ## Commands
 
@@ -22,7 +22,7 @@ Guides you through fixing bugs using Test-Driven Development methodology with ex
 **Example:** `/bug The weather forecast command throws KeyError when API response is missing temperature data`
 
 ### `/capture_need` - Capture Future Work
-Quickly capture needs, ideas, bugs, or changes that should be addressed in future Claude Code sessions.
+Quickly capture needs, ideas, bugs, or changes that should be addressed in future Claude Code sessions, while minimally adding to the current Claude Code session context.
 
 **Usage:** `/capture_need <name> '<description>'`
 
