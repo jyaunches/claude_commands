@@ -29,8 +29,6 @@ Write comprehensive test specifications for an existing spec file using TDD prin
 2. Review existing test patterns in `tests/`
 3. Design test coverage:
    - **Unit Tests**: Isolated component testing with mocks
-   - **Integration Tests**: CLI workflow testing end-to-end
-   - **Edge Cases**: Boundary conditions and error scenarios
 4. Identify reusable patterns (fixtures, mocks, parametrization)
 5. Present strategy to user with coverage overview and recommendations
 6. Discuss and adjust based on user feedback
@@ -59,12 +57,6 @@ Write comprehensive test specifications for an existing spec file using TDD prin
 - Components to test: X
 - Estimated test count: Y
 - Unit tests: List key components
-- Integration tests: List workflows to verify
-
-### Key Testing Challenges
-- External service mocking
-- Data format variations
-- Edge case handling
 
 ### Recommendations
 - Priority areas for testing
@@ -72,32 +64,21 @@ Write comprehensive test specifications for an existing spec file using TDD prin
 - Reusable fixtures needed
 ```
 
-## Integration Test Guidelines
-
-Integration tests verify complete CLI workflows from command to persistence:
-
-- **Purpose**: Test full command execution paths
-- **Pattern**: Chain CLI commands to verify end-to-end functionality
-- **Goal**: Maximize coverage per test to minimize test count
-
 ### Example Pattern
 
-```python
-def test_weather_forecast_workflow(cli_runner, mock_api):
-    """Test: fetch forecast → verify data → display results."""
+**Tests to Write**:
 
-    # Fetch weather forecast
-    result = cli_runner.invoke(app, ["forecast", "New York"])
-    assert result.exit_code == 0
+1. `test_should_create_baseline_calculator_with_config`
+   - **Input**: Config with window_minutes=10
+   - **Expected**: Calculator instance with window=10
 
-    # Verify forecast data
-    result = cli_runner.invoke(app, ["status", "locations"])
-    assert "New York" in result.output
+2. `test_should_create_service_with_injected_dependencies`
+   - **Input**: Mock client and calculator
+   - **Expected**: Service uses injected mocks, not defaults
 
-    # Test current conditions
-    result = cli_runner.invoke(app, ["current", "New York"])
-    assert result.exit_code == 0
-```
+3. `test_should_create_all_calculators`
+   - **Input**: Standard config
+   - **Expected**: All calculator types created successfully
 
 ### Best Practices
 
